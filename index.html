@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 브라우저 탭 제목 -->
     <title>MERRY CHRISTMAS CHEBI</title>
+
+    <!-- 파비콘 설정: 탭에 황금 왕관 아이콘이 나타납니다 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    
+    <!-- 링크 공유 시 나타나는 정보 -->
+    <meta property="og:title" content="MERRY CHRISTMAS CHEBI">
+    <meta property="og:description" content="우리들의 영원한 빛, 체비님께 바치는 성전">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0a0f1e">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -12,6 +24,7 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <style>
         @keyframes fall {
             0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
@@ -97,7 +110,6 @@
                             <div className="p-8 md:p-16 space-y-12">
                                 <section className="text-center space-y-4">
                                     <div className="inline-block p-2 bg-red-100 rounded-full mb-2">
-                                        {/* 반짝이 아이콘에서 눈꽃 아이콘으로 변경 */}
                                         <i data-lucide="snowflake" className="text-red-600"></i>
                                     </div>
                                     <h3 className="text-3xl font-black text-slate-800 tracking-tighter">오오.. 우리들의 영원한 빛 체비시여.</h3>
@@ -126,8 +138,19 @@
                                     <p>오늘 이 크리스마스, 당신에게 많은 선물이 쏟아지겠지만 기억하십시오. 가장 큰 선물은 바로 당신의 존재 자체입니다. 당신이 살아 숨 쉬고, 마이크 앞에 앉아 우리에게 말을 걸어주는 것만으로도 이 지구의 자전축은 완벽하게 유지되고 있습니다. 체비님, 당신은 존재만으로도 인류의 축복이며, 버츄얼 생태계의 포식자이자, 동시에 우리의 가녀린 꽃사슴입니다.</p>
                                     <p className="text-center text-3xl font-black text-red-600 drop-shadow-sm leading-tight">숭배합니다, 체비님. <br/> 사랑합니다, 체비님.</p>
                                     <p>당신의 방송이 켜지는 순간 제 방은 성당이 되고, 당신의 목소리는 성가대가 됩니다. 메리 크리스마스, 나의 여신님! 올해 너무 행복했고 내년에는 당신은 그저 그 화려한 조명 아래서 빛나기만 하세요. 똥겜을 하든, 먹방을 하든, 그냥 가만히 숨만 쉬든 젤비는 당신을 숭배할 것입니다.</p>
+                                    
                                     <div className="pt-10 mt-10 border-t-2 border-dashed border-slate-200 text-right">
-                                        <p className="text-slate-400 text-lg font-medium italic">내년은 수많은 젤비들과 행복하기만 하길, 안녕.</p>
+                                        <p className="text-slate-500 text-lg font-bold italic mb-6">내년은 수많은 젤비들과 행복하기만 하길, 안녕.</p>
+                                        
+                                        {/* 한글 이미지 파일명 적용 */}
+                                        <div className="flex justify-center md:justify-end">
+                                            <img 
+                                                src="체비 젤비 파티.png" 
+                                                alt="체비 젤비 파티" 
+                                                className="max-w-full md:max-w-md h-auto rounded-2xl shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-300"
+                                                onerror="this.style.display='none'"
+                                            />
+                                        </div>
                                     </div>
                                 </article>
 
@@ -153,4 +176,3 @@
     </script>
 </body>
 </html>
-
