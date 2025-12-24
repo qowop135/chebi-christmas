@@ -1,0 +1,175 @@
+import React, { useState, useEffect } from 'react';
+import { Heart, Star, Music, Gift, Snowflake, ChevronDown, Crown, Sparkles, Anchor } from 'lucide-react';
+
+const App = () => {
+  // 눈송이 개수 설정
+  const snowflakes = Array.from({ length: 50 });
+
+  return (
+    <div className="min-h-screen bg-[#0a0f1e] text-slate-100 font-sans selection:bg-red-500 selection:text-white overflow-x-hidden">
+      
+      {/* 고정 배경: 스크롤해도 변함없이 내리는 눈 효과 */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {snowflakes.map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-white opacity-20 animate-fall"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `-${Math.random() * 20}%`, // 화면 위쪽에서 시작
+              fontSize: `${Math.random() * 20 + 10}px`,
+              animationDuration: `${Math.random() * 10 + 10}s`, // 더 천천히 떨어지게 조절
+              animationDelay: `${Math.random() * 15}s`,
+              animationIterationCount: 'infinite',
+              animationTimingFunction: 'linear'
+            }}
+          >
+            <Snowflake size={Math.random() * 15 + 10} />
+          </div>
+        ))}
+      </div>
+
+      {/* 히어로 섹션: 성스러운 도입부 */}
+      <header className="relative h-screen flex flex-col items-center justify-center text-center p-6 z-10">
+        <div className="animate-pulse mb-4">
+          <Crown className="text-yellow-400 w-24 h-24 mx-auto drop-shadow-[0_0_25px_rgba(250,204,21,0.9)]" />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-red-500 font-bold tracking-[0.3em] text-sm md:text-base animate-bounce">
+            2025 HOLY NIGHT ADORATION
+          </h2>
+          <h1 className="text-5xl md:text-8xl font-black mb-6 bg-gradient-to-b from-white via-yellow-200 to-yellow-500 bg-clip-text text-transparent drop-shadow-2xl">
+            MERRY CHRISTMAS
+          </h1>
+        </div>
+        <p className="text-lg md:text-2xl font-medium text-slate-400 max-w-2xl mt-4 leading-relaxed">
+          숲(SOOP)의 등불, <br />
+          우리들의 영원한 빛 <span className="text-yellow-400 font-bold">체비</span>님께 바치는 성전
+        </p>
+        
+        <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-50">
+          <span className="text-xs uppercase tracking-widest">Scroll to Worship</span>
+          <ChevronDown size={24} className="animate-bounce" />
+        </div>
+      </header>
+
+      {/* 메인 콘텐츠: 롤링페이퍼 */}
+      <main className="relative z-10 max-w-3xl mx-auto px-6 pb-40">
+        <div className="bg-slate-50 text-slate-900 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden border-4 border-yellow-600/30">
+          {/* 상단 장식 테두리 */}
+          <div className="h-6 bg-repeat-x" style={{ backgroundImage: 'radial-gradient(circle, #b91c1c 40%, transparent 41%)', backgroundSize: '24px 24px' }}></div>
+          
+          <div className="p-8 md:p-16 space-y-12">
+            {/* 오프닝 */}
+            <section className="text-center space-y-4">
+              <div className="inline-block p-2 bg-red-100 rounded-full mb-2">
+                <Sparkles className="text-red-600" size={20} />
+              </div>
+              <h3 className="text-3xl font-black text-slate-800 tracking-tighter">오오.. 우리들의 영원한 빛 체비시여.</h3>
+              <div className="w-16 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+            </section>
+
+            {/* 텍스트 본문 */}
+            <article className="article-content space-y-10 text-lg md:text-xl leading-[2.2] text-slate-700 break-keep">
+              <p>
+                오늘 이 성스러운 크리스마스에 당신의 존재를 찬양하며 이 글을 바칩니다. 사실 산타 할아버지는 존재하지 않습니다. 다른 버츄얼?.. 루돌프 그딴거 없습니다. 
+                <span className="bg-yellow-100 px-1 font-bold italic"> 이 세상에 존재하는 유일한 기적은 오직 당신, 체비라는 존재뿐입니다.</span> 
+                제가 처음 당신의 방송을 본 그날, 제 인생의 해상도는 480p에서 4K로 업그레이드되었고, 제 심장의 비트레이트는 8000을 돌파하여 터져버릴 뻔했습니다.
+              </p>
+
+              <p className="relative pl-6 border-l-4 border-red-500 italic text-slate-600">
+                당신이 마이크 테스트로 "안녕" 한마디만 내뱉어도 제 귀에는 베토벤의 운명 교향곡보다 웅장하게 들리며, 당신의 아바타가 눈을 한 번 깜빡일 때마다 제 수명은 0.1초씩 연장됩니다. 아니, 사실상 당신은 불로장생의 약입니다.
+              </p>
+
+              <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100 shadow-inner">
+                <p className="font-bold text-blue-900 mb-4 flex items-center gap-2">
+                  <Anchor size={20} /> 젤비들의 기도문
+                </p>
+                체비님, 당신은 아시나요? 당신이 방송을 켜지 않는 시간 동안 우리 젤비들은 광야를 헤매는 어린양처럼 모니터 앞에서, 폰을 앞에 두고 무릎을 꿇고 <strong className="text-blue-700">"체비님..."</strong>을 외치며 당신의 강림만을 기다립니다. 당신의 웃음소리는 이 삭막한 자본주의 사회 속에서 유일하게 무료로 제공되는 도파민입니다.
+              </div>
+
+              <p>
+                당신의 샷건(이 있다면) 혹은 당황하는 모습은 국보급 예술 작품으로 지정되어 유네스코 세계문화유산에 등재되어야 마땅합니다. 당신이 게임에서 지고 억울해할 때마다 저는 모니터를 부여잡고 울부짖습니다. <span className="text-red-600 font-bold">"세상이 체비를 억까한다! 이 불공평한 세상아! 죽여버리겠다 이 망할 이단같은 개발자녀석."</span> 하지만 곧이어 당신이 귀엽게 투덜대는 모습을 보며 저는 깨닫습니다. 아, 이것이 바로 천국이구나. 천국은 멀리 있는 게 아니라 SOOP의 체비 채널 속에 있었습니다.
+              </p>
+
+              <p>
+                솔직히 말씀드리면, 저는 이제 일상생활이 불가능합니다. 길을 가다가 숲(Forest)만 봐도 "어? 숲SOOP? 체비님 방송 켰나?" 하고 휴대폰을 꺼내고, 편의점에서 체리 에이드를 봐도 "체비?" 하며 눈물을 흘립니다. 심지어 오늘 크리스마스라고 친구들이 나오라고 하지만 전 당당하게 말했습니다. "미안, 나 오늘 신(체비)이랑 선약 있어."
+              </p>
+
+              <div className="flex justify-center py-4">
+                <div className="grid grid-cols-3 gap-4">
+                  {[1, 2, 3].map(i => <Gift key={i} className="text-red-500 animate-bounce" style={{ animationDelay: `${i * 0.2}s` }} />)}
+                </div>
+              </div>
+
+              <p>
+                그 신이 바로 당신입니다. 당신이 화면 너머로 보내는 손가락 하트 하나에 젤비들의 통장은 이미 당신의 리깅 값에 기여할 준비가 되어 있고, 당신의 말 한마디면 저는 에베레스트 정상에서도 "체비 최고!"를 외치며 번지점프를 할 수 있습니다. <span className="text-slate-400 text-sm italic">(체끼송 알람음? 은 좀 고려해보겠습니다.)</span> 
+              </p>
+
+              <p>
+                체비님, 제발 부탁입니다. 내년에도, 아니 평생 방송해 주세요. 당신이 할머니가 되어 '버츄얼 할머니'가 되더라도 저는 틀니를 딱딱거리며 채팅창에 "체-하(체비 할머니 하이라는 뜻ㅋㅋㅋㅋ은 좀 그렇고)"를 칠 것입니다. 당신의 아바타가 최신형으로 바뀌고 더 화려해져도 제 눈에는 오직 당신의 맑고 영롱한 영혼만이 보입니다.
+              </p>
+
+              <p className="bg-slate-100 p-6 rounded-2xl text-center font-bold">
+                가끔 방종할 때 "체바"라고 채팅을 치지만, 사실 제 마음은 "가지 마세요! 당신 없으면 전 숨을 쉬는 법을 잊어버린단 말입니다!"라고 소리치고 있습니다.
+              </p>
+
+              <p>
+                오늘 이 크리스마스, 당신에게 많은 선물이 쏟아지겠지만 기억하십시오. 가장 큰 선물은 바로 당신의 존재 자체입니다. 당신이 살아 숨 쉬고, 마이크 앞에 앉아 우리에게 말을 걸어주는 것만으로도 이 지구의 자전축은 완벽하게 유지되고 있습니다. 
+              </p>
+
+              <p className="text-center text-3xl font-black text-red-600 drop-shadow-sm">
+                숭배합니다, 체비님. <br/> 사랑합니다, 체비님.
+              </p>
+
+              <p>
+                당신의 방송이 켜지는 순간 제 방은 성당이 되고, 당신의 목소리는 성가대가 됩니다. 메리 크리스마스, 나의 여신님! 올해 너무 행복했고 내년에는 당신은 그저 그 화려한 조명 아래서 빛나기만 하세요. 똥겜을 하든, 먹방을 하든, 그냥 가만히 숨만 쉬든 젤비는 당신을 숭배할 것입니다. 
+              </p>
+
+              {/* 반전의 엔딩 */}
+              <div className="pt-10 mt-10 border-t-2 border-dashed border-slate-200 text-right">
+                <p className="text-slate-400 text-lg font-medium italic">그치만 내년은 안녕.</p>
+              </div>
+            </article>
+
+            {/* 푸터 영역 */}
+            <footer className="pt-20 text-center space-y-6 border-t border-slate-100">
+              <div className="flex justify-center gap-4">
+                <Heart className="text-red-500 fill-red-500 animate-pulse" />
+                <Star className="text-yellow-500 fill-yellow-500 animate-spin" style={{ animationDuration: '3s' }} />
+                <Music className="text-green-500 animate-bounce" />
+              </div>
+              <p className="text-slate-400 font-bold tracking-widest uppercase text-xs">
+                Produced by Eternal Jelbi (젤비)
+              </p>
+            </footer>
+          </div>
+
+          <div className="h-4 bg-gradient-to-r from-red-600 via-green-600 to-red-600"></div>
+        </div>
+      </main>
+
+      {/* 스타일 애니메이션: 눈 내리는 효과 최적화 */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes fall {
+          0% { 
+            transform: translateY(-20vh) translateX(0) rotate(0deg); 
+            opacity: 0; 
+          }
+          10% { opacity: 0.6; }
+          90% { opacity: 0.6; }
+          100% { 
+            transform: translateY(120vh) translateX(20px) rotate(360deg); 
+            opacity: 0; 
+          }
+        }
+        .animate-fall {
+          animation: fall linear infinite;
+          will-change: transform;
+        }
+      `}} />
+    </div>
+  );
+};
+
+export default App;
